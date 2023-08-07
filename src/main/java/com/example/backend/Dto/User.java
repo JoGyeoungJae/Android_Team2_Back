@@ -1,12 +1,21 @@
 package com.example.backend.Dto;
 
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
+@Entity
+@Table(name = "user")
 public class User {
-    private String id;
-    private String password;
-    private String email;
-    private String phone;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long uid;
+
+    private String uemail;
+    private String upassword;
+    private String uname;
+    private String unickname;
+
 
 }
