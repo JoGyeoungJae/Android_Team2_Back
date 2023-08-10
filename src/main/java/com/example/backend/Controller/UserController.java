@@ -48,7 +48,7 @@ public class UserController {
         userService.saveUser(newUser);
 
 
-        return "ok";
+        return "ok!";
     }
 
 
