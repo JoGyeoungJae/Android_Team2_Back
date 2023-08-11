@@ -31,6 +31,8 @@ public class FoodInfoController {
     @PostMapping("/postFoodInfo")
     //인서트
     public void postFoodInfo(@RequestBody FoodInfo foodInfo){
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(foodInfo.getRmainimg());
         foodInfoService.save(foodInfo);
     }
 }
