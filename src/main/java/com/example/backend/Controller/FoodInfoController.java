@@ -25,10 +25,11 @@ public class FoodInfoController {
 
     @GetMapping("/foodfindAll")
     public List<FoodInfo> findAll() {
-
+    //전체 리스트
         return foodInfoService.findAll();
     }
     @PostMapping("/postFoodInfo")
+    //인서트
     public void postFoodInfo(@RequestBody FoodInfo foodInfo){
         foodInfoService.save(foodInfo);
     }

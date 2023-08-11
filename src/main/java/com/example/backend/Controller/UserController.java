@@ -27,6 +27,8 @@ public class UserController {
         String uname = user.getUname();
         String unickname = user.getUnickname();
         //확인
+        //추가2
+        //추가 3
         String uimg = user.getUimg();
 
         // 전송된 데이터를 로그에 출력하거나 원하는 처리를 수행합니다.
@@ -44,7 +46,7 @@ public class UserController {
         newUser.setUname(uname);
         newUser.setUnickname(unickname);
         newUser.setUimg(uimg);
-        //연동테스트2222
+        //연동테스트3333
 
         userService.saveUser(newUser);
 
