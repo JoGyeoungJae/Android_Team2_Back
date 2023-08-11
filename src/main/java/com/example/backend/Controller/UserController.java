@@ -26,7 +26,7 @@ public class UserController {
         String upassword = user.getUpassword();
         String uname = user.getUname();
         String unickname = user.getUnickname();
-        //확인-hotfix Test
+        //확인
         String uimg = user.getUimg();
 
         // 전송된 데이터를 로그에 출력하거나 원하는 처리를 수행합니다.
