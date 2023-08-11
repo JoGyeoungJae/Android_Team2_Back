@@ -43,7 +43,7 @@ public class UserController {
         newUser.setUname(uname);
         newUser.setUnickname(unickname);
         newUser.setUimg(uimg);
-
+        //연동테스트
 
         userService.saveUser(newUser);
 
