@@ -4,6 +4,7 @@ package com.example.backend.Controller;
 import com.example.backend.Dto.User;
 import com.example.backend.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,7 @@ public class UserController {
         String upassword = user.getUpassword();
         String uname = user.getUname();
         String unickname = user.getUnickname();
+        String uimg = user.getUimg();
 
         // 전송된 데이터를 로그에 출력하거나 원하는 처리를 수행합니다.
         System.out.println("Received data:");
@@ -32,6 +34,7 @@ public class UserController {
         System.out.println("upassword: " + upassword);
         System.out.println("uname: " + uname);
         System.out.println("unickname: " + unickname);
+        System.out.println("uimg: " + uimg);
 
         // 데이터베이스에 저장
         User newUser = new User();
@@ -39,11 +42,13 @@ public class UserController {
         newUser.setUpassword(upassword);
         newUser.setUname(uname);
         newUser.setUnickname(unickname);
+        newUser.setUimg(uimg);
 
 
         userService.saveUser(newUser);
 
-        return "Data received successfully";
+
+        return "ok!";
     }
 
 

@@ -16,6 +16,7 @@ public class User {
     private String upassword;
     private String uname;
     private String unickname;
+    private String uimg;
 
 
 }
