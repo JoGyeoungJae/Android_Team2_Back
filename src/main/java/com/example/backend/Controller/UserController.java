@@ -28,6 +28,7 @@ public class UserController {
         String unickname = user.getUnickname();
         //확인
         //추가2
+        //추가 3
         String uimg = user.getUimg();
 
         // 전송된 데이터를 로그에 출력하거나 원하는 처리를 수행합니다.
