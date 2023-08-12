@@ -24,7 +24,10 @@ public class UserController {
 
 
     @RequestMapping("/signup")
-    public String signUp( @RequestBody User user) {
+    public ResponseEntity<String> signUp( @RequestBody User user) {
+
+
+
         String uemail = user.getUemail();
         String upassword = user.getUpassword();
         String uname = user.getUname();
@@ -51,7 +54,8 @@ public class UserController {
         userService.saveUser(newUser);
 
 
-        return "ok!";
+
+        return ResponseEntity.ok("ok!");
 
     }
 
