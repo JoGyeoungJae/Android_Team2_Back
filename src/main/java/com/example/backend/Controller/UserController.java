@@ -5,6 +5,7 @@ import com.example.backend.Dto.User;
 import com.example.backend.Response.ApiResponse;
 import com.example.backend.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -72,15 +73,17 @@ public class UserController {
         if (existingUser == null) {
             System.out.println("그런 이메일 없다");
             response.setSuccess(false);
+            response.setData(null);
             response.setError("No such email");
-           return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+            return ResponseEntity.ok(response);
         }
 
         else if (existingUser !=null && !existingUser.getUpassword().equals(upassword)) {
             System.out.println("이메일은 맞는데 비밀번호가 틀렸다.");
             response.setSuccess(false);
+            response.setData(null);
             response.setError("Incorrect password");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+            return ResponseEntity.ok(response);
         }
 
         System.out.println("이메일과 비밀번호 일치! 아래에 유저정보 출력");
