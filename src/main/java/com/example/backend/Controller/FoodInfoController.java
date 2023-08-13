@@ -2,8 +2,8 @@ package com.example.backend.Controller;
 
 import com.example.backend.Entity.FoodInfo;
 import com.example.backend.Service.FoodInfoService;
-import com.example.backend.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,5 +34,16 @@ public class FoodInfoController {
         System.out.println("!!!!!!!!!!!!!!!!!!!!!!");
         System.out.println(foodInfo.getRmainimg());
         foodInfoService.save(foodInfo);
+    }
+
+    @PostMapping("/postFoodInfodelete")
+    public ResponseEntity<String> postFoodInfodelete(@RequestBody FoodInfo foodInfo){
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(foodInfo.getRid());
+        Long rid = foodInfo.getRid();
+        foodInfoService.delete(rid);
+
+        String message = "삭제되었습니다.";
+        return ResponseEntity.ok(message);
     }
 }
