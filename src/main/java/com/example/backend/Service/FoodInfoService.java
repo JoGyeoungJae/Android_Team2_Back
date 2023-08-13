@@ -20,4 +20,8 @@ public class FoodInfoService {
     public void save(FoodInfo foodInfo){
         foodInfoRepository.save(foodInfo);
     }
+
+    public void delete(Long rid){
+        foodInfoRepository.deleteById(rid);
+    }
 }
