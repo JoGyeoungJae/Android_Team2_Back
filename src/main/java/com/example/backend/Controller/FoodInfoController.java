@@ -4,10 +4,7 @@ import com.example.backend.Entity.FoodInfo;
 import com.example.backend.Service.FoodInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,6 +24,17 @@ public class FoodInfoController {
     public List<FoodInfo> findAll() {
     //전체 리스트
         return foodInfoService.findAll();
+    }
+    @GetMapping("/getFoodstarmaxList")
+    public List<FoodInfo> getFoodstarmaxList() {
+        //전체 리스트
+        return foodInfoService.getFoodstarmaxList();
+    }
+    @GetMapping("/getSearchList")
+    public List<FoodInfo> SearchList(@RequestParam("cid") String cid) {
+        //전체 리스트
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+cid);
+        return foodInfoService.SearchList(cid);
     }
     @PostMapping("/postFoodInfo")
     //인서트

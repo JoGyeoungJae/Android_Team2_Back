@@ -20,4 +20,5 @@ public class FoodInfo {
     private Long rtotalstar;
     private Double rstaravg;
     private Long rcount;
+    private Long cid;
 }
