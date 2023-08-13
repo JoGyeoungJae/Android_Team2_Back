@@ -52,9 +52,6 @@ public class UserController {
 
 
         userService.saveUser(newUser);
-
-
-
         return ResponseEntity.ok("ok!");
 
     }
@@ -101,7 +98,46 @@ public class UserController {
 
 
 
+    @RequestMapping("/modify")
+    public ResponseEntity<String> modify( @RequestBody User user) {
 
+
+
+        String uemail = user.getUemail();
+        String upassword = user.getUpassword();
+        String uname = user.getUname();
+        String unickname = user.getUnickname();
+        String uimg = user.getUimg();
+
+        User existingUser = userService.getUserByUemail(uemail);
+
+
+        System.out.println("Received data:");
+        System.out.println("uemail: " + uemail);
+        System.out.println("upassword: " + upassword);
+        System.out.println("uname: " + uname);
+        System.out.println("unickname: " + unickname);
+        System.out.println("uimg: " + uimg);
+
+
+        if (existingUser != null) {
+            // 업데이트할 값들로 사용자 데이터 갱신
+            existingUser.setUpassword(upassword);
+            existingUser.setUname(uname);
+            existingUser.setUnickname(unickname);
+            existingUser.setUimg(uimg);
+
+            // 데이터베이스에 업데이트
+            userService.saveUser(existingUser);
+
+            // 성공적으로 업데이트가 완료되었음을 응답
+            return ResponseEntity.ok("ok!");
+        } else {
+            // 해당 이메일에 해당하는 사용자가 없는 경우 에러 응답
+            return ResponseEntity.badRequest().body("User not found.");
+        }
+
+    }
 
 
 
