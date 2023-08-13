@@ -90,7 +90,7 @@ public class UserController {
             return ResponseEntity.ok(response);
         }
 
-        System.out.println("이메일과 비밀번호 일치! 아래에 유저정보 출력");
+        System.out.println("이메일과 비밀번호 일치!! 아래에 유저정보 출력");
         System.out.println(existingUser);
 
         response.setSuccess(true);
