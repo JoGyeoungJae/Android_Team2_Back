@@ -17,6 +17,12 @@ public class Comment {
 
     private String reviewimg;
 
-    private String uid;
+    private String nickname;
+
+    private Long starpoint;
+
+    private Long uid;
+
+    private Long rid;
 
 }

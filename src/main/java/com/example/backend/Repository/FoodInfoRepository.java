@@ -9,4 +9,6 @@ public interface FoodInfoRepository extends JpaRepository<FoodInfo,Long> {
     List<FoodInfo> findAllByCid(Long cid);
 
     List<FoodInfo> findTop5ByOrderByRstaravgDesc();
+
+    FoodInfo findByRid(Long rid);
 }
