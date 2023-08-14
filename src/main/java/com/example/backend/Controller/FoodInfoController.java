@@ -30,6 +30,11 @@ public class FoodInfoController {
         //전체 리스트
         return foodInfoService.getFoodstarmaxList();
     }
+    @GetMapping("/getFoodone")
+    public FoodInfo getFoodone(@RequestParam("rid") String rid) {
+        //전체 리스트
+        return foodInfoService.getFoodone(rid);
+    }
     @GetMapping("/getSearchList")
     public List<FoodInfo> SearchList(@RequestParam("cid") String cid) {
         //전체 리스트

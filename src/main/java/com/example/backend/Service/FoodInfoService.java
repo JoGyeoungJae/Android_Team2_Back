@@ -17,6 +17,10 @@ public class FoodInfoService {
 
         return foodInfoRepository.findAll();
     }
+    public FoodInfo getonerest(Long rid){
+
+        return foodInfoRepository.findByRid(rid);
+    }
     public List<FoodInfo> getFoodstarmaxList(){
 
         return foodInfoRepository.findTop5ByOrderByRstaravgDesc();
@@ -24,6 +28,10 @@ public class FoodInfoService {
     public List<FoodInfo> SearchList(String cid){
         Long ccid = Long.valueOf(cid);
         return foodInfoRepository.findAllByCid(ccid);
+    }
+    public FoodInfo getFoodone(String rid){
+        Long rrid = Long.valueOf(rid);
+        return foodInfoRepository.findByRid(rrid);
     }
     public void save(FoodInfo foodInfo){
         foodInfoRepository.save(foodInfo);
