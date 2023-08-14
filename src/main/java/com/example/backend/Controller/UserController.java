@@ -23,6 +23,31 @@ public class UserController {
     }
 
 
+    @RequestMapping("/check")
+    public ResponseEntity<String> check( @RequestBody User user) {
+
+
+        String uemail = user.getUemail();
+
+        // 전송된 데이터를 로그에 출력하거나 원하는 처리를 수행합니다.
+        System.out.println("Received data:");
+        System.out.println("uemail: " + uemail);
+
+        User existingUser = userService.getUserByUemail(uemail);
+
+        System.out.println(existingUser);
+
+        if (existingUser == null) {
+            // 그런 이메일 없음
+            return ResponseEntity.ok("ok!");
+        } else {
+            // 중복 이메일 있음
+            return ResponseEntity.ok("no");
+        }
+
+    }
+
+
     @RequestMapping("/signup")
     public ResponseEntity<String> signUp( @RequestBody User user) {
 
@@ -33,6 +58,8 @@ public class UserController {
         String uname = user.getUname();
         String unickname = user.getUnickname();
         String uimg = user.getUimg();
+        String role = user.getRole();
+
 
         // 전송된 데이터를 로그에 출력하거나 원하는 처리를 수행합니다.
         System.out.println("Received data:");
@@ -41,18 +68,22 @@ public class UserController {
         System.out.println("uname: " + uname);
         System.out.println("unickname: " + unickname);
         System.out.println("uimg: " + uimg);
-
-        // 데이터베이스에 저장
-        User newUser = new User();
-        newUser.setUemail(uemail);
-        newUser.setUpassword(upassword);
-        newUser.setUname(uname);
-        newUser.setUnickname(unickname);
-        newUser.setUimg(uimg);
+        System.out.println("role: " + role);
 
 
-        userService.saveUser(newUser);
-        return ResponseEntity.ok("ok!");
+
+            User newUser = new User();
+            newUser.setUemail(uemail);
+            newUser.setUpassword(upassword);
+            newUser.setUname(uname);
+            newUser.setUnickname(unickname);
+            newUser.setUimg(uimg);
+            newUser.setRole(role);
+
+
+            userService.saveUser(newUser);
+
+            return ResponseEntity.ok("ok!");
 
     }
 
