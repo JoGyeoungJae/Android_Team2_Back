@@ -47,16 +47,23 @@ public class CommentController {
 
         String cmt = comment.getCmt();
         String cmtTime = comment.getCmtTime();
+        String reviewimg = comment.getReviewimg();
+        String uid = comment.getUid();
 
         // 전송된 데이터를 로그에 출력하거나 원하는 처리를 수행합니다.
         System.out.println("Received data:");
         System.out.println("cmt: " + cmt);
         System.out.println("cmtTime" + cmtTime);
+        System.out.println("cmtTime" + reviewimg);
+        System.out.println("uid" + uid);
+
 
         //db저장
         Comment comment1 = new Comment();
         comment1.setCmt(cmt);
         comment1.setCmtTime(cmtTime);
+        comment1.setReviewimg(reviewimg);
+        comment1.setUid(uid);
 
 
         commentService.saveComment(comment1);
