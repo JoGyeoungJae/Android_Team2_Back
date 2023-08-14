@@ -15,4 +15,8 @@ public class Comment {
 
     private String cmtTime;
 
+    private String reviewimg;
+
+    private String uid;
+
 }
