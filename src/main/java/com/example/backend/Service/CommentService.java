@@ -17,8 +17,15 @@ public class CommentService {
 
     public Comment saveComment(Comment comment) {return commentRepository.save(comment);}
 
+    public Comment getReviewOne(Long uid, Long rid){
+        return commentRepository.findByUidAndRid(uid,rid);
+    }
+
     public List<Comment> findAllByUidAndRid(Long uid, Long rid){
 
         return commentRepository.findAllByUidAndRid(uid,rid);
+    }
+    public void delete(Long id){
+        commentRepository.deleteById(id);
     }
 }

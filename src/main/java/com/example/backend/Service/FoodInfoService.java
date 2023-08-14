@@ -29,6 +29,10 @@ public class FoodInfoService {
         Long ccid = Long.valueOf(cid);
         return foodInfoRepository.findAllByCid(ccid);
     }
+    public FoodInfo getFoodone(String rid){
+        Long rrid = Long.valueOf(rid);
+        return foodInfoRepository.findByRid(rrid);
+    }
     public void save(FoodInfo foodInfo){
         foodInfoRepository.save(foodInfo);
     }
