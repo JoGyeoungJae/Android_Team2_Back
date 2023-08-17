@@ -2,7 +2,12 @@ package com.example.backend.Repository;
 
 import com.example.backend.Dto.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    // 별도의 메소드 선언이 필요 없음
+    User findByUemail(String uemail);
+
+
 }

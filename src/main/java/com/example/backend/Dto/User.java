@@ -17,6 +17,7 @@ public class User {
     private String uname;
     private String unickname;
     private String uimg;
+    private String role;
 
 
 }
